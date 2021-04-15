@@ -22,6 +22,7 @@ const getRecipeById = async (recipe_id) => {
       's.step_number',
       's.step_instructions',
       'i.ingredient_name',
+      'i.ingredient_id',
       'si.quantity'
     )
     .where('r.recipe_id', recipe_id)
@@ -32,6 +33,25 @@ const getRecipeById = async (recipe_id) => {
     recipe_name: recipeInfo[0]['recipe_name'],
     steps: [],
   };
+
+  formattedRecipe.steps = recipeInfo.map((rec) => {
+    if (!formattedRecipe.steps.includes(rec)) {
+      return {
+        step_id: rec.step_id,
+        step_number: rec.step_number,
+        step_instructions: rec.step_instructions,
+        ingredients: {
+          ingredient_id: rec.ingredient_id,
+          ingredient_name: rec.ingredient_name,
+          quantity: rec.quantity
+        }
+      };
+    }
+  });
+
+  // formattedRecipe.steps.filter(rec => {
+
+  // })
 
   return formattedRecipe;
 };
