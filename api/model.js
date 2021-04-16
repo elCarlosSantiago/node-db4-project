@@ -1,16 +1,6 @@
 const db = require('../data/db-config.js');
 
 const getRecipeById = async (recipe_id) => {
-  // SELECT r.recipe_id, r.recipe_name, s.step_id, s.step_number, s.step_instructions, i.ingredient_name, si.quantity
-  // FROM recipes r
-  // JOIN steps s
-  // ON r.recipe_id = s.recipe_id
-  // LEFT JOIN step_ingredients si
-  // ON s.step_id = si.step_id
-  // LEFT JOIN ingredients i
-  // ON si.ingredient_id = i.ingredient_id
-  // WHERE r.recipe_id = 2;
-
   const recipeInfo = await db('recipes as r')
     .leftJoin('steps as s', 'r.recipe_id', 's.recipe_id')
     .leftJoin('step_ingredients as si', 's.step_id', 'si.step_id')
