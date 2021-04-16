@@ -6,7 +6,8 @@
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "dbreset": "npm run rollback && npm run migrate && npm run seed"
   },
   "repository": {
     "type": "git",

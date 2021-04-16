@@ -36,7 +36,7 @@ exports.up = function (knex) {
          .inTable('steps')
          .onDelete('RESTRICT')
          .onUpdate('RESTRICT');
-      tbl.string('quantity').notNullable();
+      tbl.integer('quantity').notNullable().unsigned()
     });
 };
 

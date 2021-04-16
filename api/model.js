@@ -23,7 +23,9 @@ const getRecipeById = async (recipe_id) => {
       's.step_instructions',
       'i.ingredient_name',
       'i.ingredient_id',
-      'si.quantity'
+      'i.ingredient_unit',
+      'si.quantity',
+      'r.created_at'
     )
     .where('r.recipe_id', recipe_id)
     .orderBy('s.step_number');
@@ -31,6 +33,7 @@ const getRecipeById = async (recipe_id) => {
   let formattedRecipe = {
     recipe_id: recipe_id,
     recipe_name: recipeInfo[0]['recipe_name'],
+    created_at: recipeInfo[0]['created_at'],
     steps: [],
   };
 
