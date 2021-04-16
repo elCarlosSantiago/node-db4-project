@@ -16,11 +16,13 @@ exports.seed = async function(knex) {
     {ingredient_name: 'rib-eye steak', ingredient_unit: 'steak'}
   ])
   await knex('steps').insert([
+    //Scrambled Eggs
     {step_number:1, step_instructions: 'Heat pan and apply butter', recipe_id:1},
     {step_number:2, step_instructions: 'Beat eggs in bowl with salt & pepper', recipe_id:1},
     {step_number:3, step_instructions: 'Pour egg mixture in pan over melted butter', recipe_id:1},
     {step_number:4, step_instructions: 'Cook until desired consistency', recipe_id:1},
     {step_number:5, step_instructions: 'Serve with truffle oil', recipe_id:1},
+    //Cast Iron Rib-eye
     {step_number:1, step_instructions: 'Season steak with salt & pepper', recipe_id:2},
     {step_number:2, step_instructions: 'Heat pan and apply olive oil until smoking', recipe_id:2},
     {step_number:3, step_instructions: 'Baste steak with butter, garlic, and thyme', recipe_id:2},
